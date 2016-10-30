@@ -3,8 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Module 1</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+	<script src="js/app.js"></script>
+
+	<link rel="stylesheet" href="css/styles.css">
+
 </head>
-<body>
-	<h1>Hello Coursera Students!</h1>
+<body ng-app="foodApp">
+	<div ng-controller="foodAppController" class="form">
+		<input type="text" ng-model="listOfMeal" class="{{inp_class}}">
+		<button ng-click="checkList();">Check If Too Much</button>
+		<div class="message {{messg_class}}">{{message}}</div>
+		<mark>
+			*Empty items are handled (i.e. item 1, item2, ,item3 are count as 3 items)
+		</mark>
+	</div>
 </body>
 </html>
