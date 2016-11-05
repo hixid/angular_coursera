@@ -10,25 +10,26 @@
 
 </head>
 <body ng-app="ShoppingList">
-	<div ng-controller="ToBuyController as tobuy">
+	<div ng-controller="ToBuyController as tobuy" class="list">
 		<header>To Buy List</header>
 		<ul>
-			<li ng-repeat="item in tobuy.list">
-				Buy {{item.quantity}} {{item.name}} 
-				<button ng-click="tobuy.removeItem($index);">Bought</button>
+			<li ng-repeat="item in tobuy.list" class="list__item">
+				<span> Buy {{item.quantity}} {{item.name}} </span>
+				<button ng-click="tobuy.removeItem($index);" class="btn--buy">Bought</button>
+				<div class="clearfix"></div>
 			</li>
 		</ul>
-		<div ng-show="tobuy.list.length == 0">Everything is bought</div>
+		<div ng-show="tobuy.list.length == 0" class="list__mssg--empty">Everything is bought</div>
 	</div>
 
-	<div ng-controller="AlreadyBoughtController as alreadybought">
+	<div ng-controller="AlreadyBoughtController as alreadybought" class="list">
 		<header>Already Bought List</header>
 		<ul>
-			<li ng-repeat="item in alreadybought.list">
-				Bought {{item.quantity}} {{item.name}} 
+			<li ng-repeat="item in alreadybought.list" class="list__item">
+				<span> Bought {{item.quantity}} {{item.name}} </span>
 			</li>
 		</ul>
-		<div ng-show="alreadybought.list.length == 0">Nothing bought yet</div>
+		<div ng-show="alreadybought.list.length == 0" class="list__mssg--empty">Nothing bought yet</div>
 	</div>
 	
 </body>
