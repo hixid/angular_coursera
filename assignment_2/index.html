@@ -9,7 +9,27 @@
 	<link rel="stylesheet" href="css/styles.css">
 
 </head>
-<body>
+<body ng-app="ShoppingList">
+	<div ng-controller="ToBuyController as tobuy">
+		<header>To Buy List</header>
+		<ul>
+			<li ng-repeat="item in tobuy.list">
+				Buy {{item.quantity}} {{item.name}} 
+				<button ng-click="tobuy.removeItem($index);">Bought</button>
+			</li>
+		</ul>
+		<div ng-show="tobuy.list.length == 0">Everything is bought</div>
+	</div>
+
+	<div ng-controller="AlreadyBoughtController as alreadybought">
+		<header>Already Bought List</header>
+		<ul>
+			<li ng-repeat="item in alreadybought.list">
+				Bought {{item.quantity}} {{item.name}} 
+			</li>
+		</ul>
+		<div ng-show="alreadybought.list.length == 0">Nothing bought yet</div>
+	</div>
 	
 </body>
 </html>
